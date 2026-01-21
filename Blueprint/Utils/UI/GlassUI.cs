@@ -341,63 +341,6 @@ namespace Blueprint.Utils.UI {
             Marshal.FreeHGlobal(data.Data);
         }
 
-
-        // Mouse down event override
-        //protected override void OnMouseDown(MouseEventArgs e) {
-        //    base.OnMouseDown(e);
-        //    if (e.Button == MouseButtons.Left)
-        //    {
-        //        _isDragging = true;
-
-        //        // Сохраняем текущий эффект
-        //        _currentAccentState = EFFECT;
-
-        //        // Временно отключаем эффект
-        //        SetAccentState(ACCENT_ENABLE_BLURBEHIND);
-
-        //        // Начинаем перетаскивание
-        //        MoveWindow(Handle);
-        //    }
-        //}
-
-        // Обработчик движения мыши для возврата эффекта
-        //protected override void OnMouseMove(MouseEventArgs e)
-        //{
-        //    base.OnMouseMove(e);
-
-        //    if (_isDragging && !IsMouseDown())
-        //    {
-        //        _isDragging = false;
-
-        //        // Включаем эффект обратно с задержкой
-        //        Task.Delay(10).ContinueWith(t =>
-        //        {
-        //            this.Invoke((MethodInvoker)delegate
-        //            {
-        //                SetAccentState(_currentAccentState);
-        //            });
-        //        });
-        //    }
-        //}
-
-        // Импорт для GetAsyncKeyState
-        //[DllImport("user32.dll")]
-        //private static extern short GetAsyncKeyState(int vKey);
-
-        // Вспомогательный метод для проверки нажатия мыши
-        //private bool IsMouseDown()
-        //{
-        //    return (GetAsyncKeyState(0x01) & 0x8000) != 0;
-        //}
-
-
-        // Move window
-        //private void MoveWindow(IntPtr hWnd) {
-        //    ReleaseCapture();
-        //    SendMessage(hWnd, WM_SYSCOMMAND, SC_MOVE + HTCAPTION, 0);
-        //}
-
-        // P/Invoke for Windows messages
         [DllImport("user32.dll")]
         private static extern IntPtr SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
@@ -415,9 +358,10 @@ namespace Blueprint.Utils.UI {
             e.Graphics.Clear(Color.Transparent);
 
             // Draw form border
-            //using (Pen borderPen = new Pen(Color.Aqua, 2)) {
-            //    e.Graphics.DrawRectangle(borderPen, 1, 1, this.ClientSize.Width - 2, this.ClientSize.Height - 2);
-            //}
+            using (Pen borderPen = new Pen(GlassUIColors.GreyBorder, 2))
+            {
+                e.Graphics.DrawRectangle(borderPen, 1, 1, this.ClientSize.Width - 2, this.ClientSize.Height - 2);
+            }
 
 
             // Draw background image with reduced opacity

@@ -12,11 +12,12 @@ namespace Blueprint
         public Form1()
         {
             // set up > Form style
-            this.BackColor = Color.Black;
-            this.FormOpacity = 120;
-            this.EFFECT = ACCENT_ENABLE_ACRYLICBLURBEHIND;
+            this.BackColor = GlassUIColors.Dark;
+            this.FormOpacity = 200;
+            this.EFFECT = ACCENT_ENABLE_BLURBEHIND;
 
             InitializeComponent();
+            MainContainer.BorderColor = GlassUIColors.GreyBorder;
         }
 
         private void button1_Click(object sender, EventArgs e)
