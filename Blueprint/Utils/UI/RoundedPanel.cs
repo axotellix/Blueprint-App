@@ -4,11 +4,10 @@ using System.ComponentModel;
 using System.Drawing.Drawing2D;
 using System.Text;
 
-namespace Blueprint.Utils.UI
-{
+namespace Blueprint.Utils.UI {
+
     [ToolboxItem(false)]
-    public class RoundedComponent : UserControl
-    {
+    public class RoundedPanel : Panel {
         private int _borderRadius = 10;
         private int _borderWidth = 1;
         private Color _borderColor = Color.Gray;
@@ -18,7 +17,7 @@ namespace Blueprint.Utils.UI
         // Новое свойство: отступы для дочерних контролов
         private Padding _contentPadding = new Padding(0);
 
-        public RoundedComponent()
+        public RoundedPanel()
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint |
                     ControlStyles.UserPaint |

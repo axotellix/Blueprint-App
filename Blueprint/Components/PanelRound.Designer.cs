@@ -1,5 +1,5 @@
 ﻿namespace Blueprint.Components {
-    partial class Panel {
+    partial class PanelRound {
         /// <summary> 
         /// Обязательная переменная конструктора.
         /// </summary>
@@ -27,7 +27,6 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         }
 
         #endregion

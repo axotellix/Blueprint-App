@@ -30,18 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Sidebar));
             Avatar = new AcrylicUI.Controls.AcrylicPanel();
-            label1 = new Label();
-            label2 = new Label();
-            buttonIcon1 = new ButtonIcon();
-            buttonIcon2 = new ButtonIcon();
-            buttonIcon3 = new ButtonIcon();
-            buttonIcon4 = new ButtonIcon();
-            Badge = new System.Windows.Forms.Panel();
-            label3 = new Label();
+            Label_Username = new Label();
+            Lable_Usertype = new Label();
+            Nav_Products = new ButtonIcon();
+            Nav_Create = new ButtonIcon();
+            Nav_Orders = new ButtonIcon();
+            Nav_Clients = new ButtonIcon();
+            Label_About = new Label();
+            Label_Company = new Label();
+            Btn_Logout = new ButtonIcon();
+            panelRound1 = new PanelRound();
             button1 = new Button();
-            label4 = new Label();
-            buttonIcon5 = new ButtonIcon();
-            Badge.SuspendLayout();
+            panelRound1.SuspendLayout();
             SuspendLayout();
             // 
             // Avatar
@@ -53,165 +53,170 @@
             Avatar.Size = new Size(50, 50);
             Avatar.TabIndex = 3;
             // 
-            // label1
+            // Label_Username
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("NT Somic", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(79, 49);
-            label1.Name = "label1";
-            label1.Size = new Size(112, 23);
-            label1.TabIndex = 4;
-            label1.Text = "John Doe";
+            Label_Username.AutoSize = true;
+            Label_Username.Font = new Font("NT Somic", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            Label_Username.ForeColor = SystemColors.Control;
+            Label_Username.Location = new Point(79, 49);
+            Label_Username.Name = "Label_Username";
+            Label_Username.Size = new Size(112, 23);
+            Label_Username.TabIndex = 4;
+            Label_Username.Text = "John Doe";
             // 
-            // label2
+            // Lable_Usertype
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("NT Somic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label2.ForeColor = SystemColors.ControlDark;
-            label2.Location = new Point(79, 72);
-            label2.Name = "label2";
-            label2.Size = new Size(59, 18);
-            label2.TabIndex = 5;
-            label2.Text = "admin";
+            Lable_Usertype.AutoSize = true;
+            Lable_Usertype.Font = new Font("NT Somic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            Lable_Usertype.ForeColor = SystemColors.ControlDark;
+            Lable_Usertype.Location = new Point(79, 72);
+            Lable_Usertype.Name = "Lable_Usertype";
+            Lable_Usertype.Size = new Size(59, 18);
+            Lable_Usertype.TabIndex = 5;
+            Lable_Usertype.Text = "admin";
             // 
-            // buttonIcon1
+            // Nav_Products
             // 
-            buttonIcon1.BackColor = Color.FromArgb(19, 20, 21);
-            buttonIcon1.ForeColor = Color.FromArgb(224, 233, 241);
-            buttonIcon1.Icon = (Image)resources.GetObject("buttonIcon1.Icon");
-            buttonIcon1.IconInactive = (Image)resources.GetObject("buttonIcon1.IconInactive");
-            buttonIcon1.Location = new Point(18, 145);
-            buttonIcon1.Name = "buttonIcon1";
-            buttonIcon1.Padding = new Padding(12);
-            buttonIcon1.Size = new Size(284, 57);
-            buttonIcon1.Style = ButtonIcon.Styles.Normal;
-            buttonIcon1.TabIndex = 6;
-            buttonIcon1.TextContent = "Товары";
+            Nav_Products.BackColor = Color.FromArgb(19, 20, 21);
+            Nav_Products.ForeColor = Color.FromArgb(224, 233, 241);
+            Nav_Products.Icon = (Image)resources.GetObject("Nav_Products.Icon");
+            Nav_Products.IconInactive = (Image)resources.GetObject("Nav_Products.IconInactive");
+            Nav_Products.Location = new Point(18, 145);
+            Nav_Products.Name = "Nav_Products";
+            Nav_Products.Padding = new Padding(12);
+            Nav_Products.Size = new Size(284, 57);
+            Nav_Products.Style = ButtonIcon.Styles.Normal;
+            Nav_Products.TabIndex = 6;
+            Nav_Products.TextContent = "Товары";
             // 
-            // buttonIcon2
+            // Nav_Create
             // 
-            buttonIcon2.BackColor = Color.Transparent;
-            buttonIcon2.BorderWidth = 0;
-            buttonIcon2.ForeColor = Color.FromArgb(96, 103, 110);
-            buttonIcon2.Icon = (Image)resources.GetObject("buttonIcon2.Icon");
-            buttonIcon2.IconInactive = (Image)resources.GetObject("buttonIcon2.IconInactive");
-            buttonIcon2.Location = new Point(18, 208);
-            buttonIcon2.Name = "buttonIcon2";
-            buttonIcon2.Padding = new Padding(12);
-            buttonIcon2.Size = new Size(284, 57);
-            buttonIcon2.Style = ButtonIcon.Styles.Inactive;
-            buttonIcon2.TabIndex = 7;
-            buttonIcon2.TextContent = "Создать товар";
+            Nav_Create.BackColor = Color.Transparent;
+            Nav_Create.BorderWidth = 0;
+            Nav_Create.ForeColor = Color.FromArgb(96, 103, 110);
+            Nav_Create.Icon = (Image)resources.GetObject("Nav_Create.Icon");
+            Nav_Create.IconInactive = (Image)resources.GetObject("Nav_Create.IconInactive");
+            Nav_Create.Location = new Point(18, 208);
+            Nav_Create.Name = "Nav_Create";
+            Nav_Create.Padding = new Padding(12);
+            Nav_Create.Size = new Size(284, 57);
+            Nav_Create.Style = ButtonIcon.Styles.Inactive;
+            Nav_Create.TabIndex = 7;
+            Nav_Create.TextContent = "Создать товар";
             // 
-            // buttonIcon3
+            // Nav_Orders
             // 
-            buttonIcon3.BackColor = Color.Transparent;
-            buttonIcon3.BorderWidth = 0;
-            buttonIcon3.ForeColor = Color.FromArgb(96, 103, 110);
-            buttonIcon3.Icon = (Image)resources.GetObject("buttonIcon3.Icon");
-            buttonIcon3.IconInactive = (Image)resources.GetObject("buttonIcon3.IconInactive");
-            buttonIcon3.Location = new Point(18, 271);
-            buttonIcon3.Name = "buttonIcon3";
-            buttonIcon3.Padding = new Padding(12);
-            buttonIcon3.Size = new Size(284, 57);
-            buttonIcon3.Style = ButtonIcon.Styles.Inactive;
-            buttonIcon3.TabIndex = 8;
-            buttonIcon3.TextContent = "Заказы";
+            Nav_Orders.BackColor = Color.Transparent;
+            Nav_Orders.BorderWidth = 0;
+            Nav_Orders.ForeColor = Color.FromArgb(96, 103, 110);
+            Nav_Orders.Icon = (Image)resources.GetObject("Nav_Orders.Icon");
+            Nav_Orders.IconInactive = (Image)resources.GetObject("Nav_Orders.IconInactive");
+            Nav_Orders.Location = new Point(18, 271);
+            Nav_Orders.Name = "Nav_Orders";
+            Nav_Orders.Padding = new Padding(12);
+            Nav_Orders.Size = new Size(284, 57);
+            Nav_Orders.Style = ButtonIcon.Styles.Inactive;
+            Nav_Orders.TabIndex = 8;
+            Nav_Orders.TextContent = "Заказы";
             // 
-            // buttonIcon4
+            // Nav_Clients
             // 
-            buttonIcon4.BackColor = Color.Transparent;
-            buttonIcon4.BorderWidth = 0;
-            buttonIcon4.ForeColor = Color.FromArgb(96, 103, 110);
-            buttonIcon4.Icon = (Image)resources.GetObject("buttonIcon4.Icon");
-            buttonIcon4.IconInactive = (Image)resources.GetObject("buttonIcon4.IconInactive");
-            buttonIcon4.Location = new Point(18, 334);
-            buttonIcon4.Name = "buttonIcon4";
-            buttonIcon4.Padding = new Padding(12);
-            buttonIcon4.Size = new Size(284, 57);
-            buttonIcon4.Style = ButtonIcon.Styles.Inactive;
-            buttonIcon4.TabIndex = 9;
-            buttonIcon4.TextContent = "Клиенты";
+            Nav_Clients.BackColor = Color.Transparent;
+            Nav_Clients.BorderWidth = 0;
+            Nav_Clients.ForeColor = Color.FromArgb(96, 103, 110);
+            Nav_Clients.Icon = (Image)resources.GetObject("Nav_Clients.Icon");
+            Nav_Clients.IconInactive = (Image)resources.GetObject("Nav_Clients.IconInactive");
+            Nav_Clients.Location = new Point(18, 334);
+            Nav_Clients.Name = "Nav_Clients";
+            Nav_Clients.Padding = new Padding(12);
+            Nav_Clients.Size = new Size(284, 57);
+            Nav_Clients.Style = ButtonIcon.Styles.Inactive;
+            Nav_Clients.TabIndex = 9;
+            Nav_Clients.TextContent = "Клиенты";
             // 
-            // Badge
+            // Label_About
             // 
-            Badge.Controls.Add(label4);
-            Badge.Controls.Add(button1);
-            Badge.Controls.Add(label3);
-            Badge.Location = new Point(18, 534);
-            Badge.Name = "Badge";
-            Badge.Padding = new Padding(18);
-            Badge.Size = new Size(284, 170);
-            Badge.TabIndex = 10;
+            Label_About.AutoSize = true;
+            Label_About.BackColor = Color.Transparent;
+            Label_About.Font = new Font("NT Somic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            Label_About.ForeColor = SystemColors.ControlDark;
+            Label_About.Location = new Point(22, 53);
+            Label_About.Name = "Label_About";
+            Label_About.Size = new Size(200, 18);
+            Label_About.TabIndex = 11;
+            Label_About.Text = "building materials store";
             // 
-            // label3
+            // Label_Company
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("NT Somic Semibold", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label3.ForeColor = SystemColors.Control;
-            label3.Location = new Point(22, 32);
-            label3.Name = "label3";
-            label3.Size = new Size(117, 20);
-            label3.TabIndex = 11;
-            label3.Text = "BLUEPRINT";
+            Label_Company.AutoSize = true;
+            Label_Company.BackColor = Color.Transparent;
+            Label_Company.Font = new Font("NT Somic Semibold", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            Label_Company.ForeColor = SystemColors.Control;
+            Label_Company.Location = new Point(21, 29);
+            Label_Company.Name = "Label_Company";
+            Label_Company.Size = new Size(117, 20);
+            Label_Company.TabIndex = 11;
+            Label_Company.Text = "BLUEPRINT";
+            // 
+            // Btn_Logout
+            // 
+            Btn_Logout.BackColor = Color.Transparent;
+            Btn_Logout.BorderWidth = 0;
+            Btn_Logout.ForeColor = Color.FromArgb(96, 103, 110);
+            Btn_Logout.Icon = (Image)resources.GetObject("Btn_Logout.Icon");
+            Btn_Logout.IconInactive = (Image)resources.GetObject("Btn_Logout.IconInactive");
+            Btn_Logout.Location = new Point(18, 760);
+            Btn_Logout.Name = "Btn_Logout";
+            Btn_Logout.Padding = new Padding(12);
+            Btn_Logout.Size = new Size(284, 51);
+            Btn_Logout.Style = ButtonIcon.Styles.Inactive;
+            Btn_Logout.TabIndex = 11;
+            Btn_Logout.TextContent = "Выйти";
+            // 
+            // panelRound1
+            // 
+            panelRound1.BackColor = Color.FromArgb(19, 20, 21);
+            panelRound1.Controls.Add(button1);
+            panelRound1.Controls.Add(Label_About);
+            panelRound1.Controls.Add(Label_Company);
+            panelRound1.Location = new Point(18, 569);
+            panelRound1.Name = "panelRound1";
+            panelRound1.Padding = new Padding(18);
+            panelRound1.Size = new Size(284, 170);
+            panelRound1.TabIndex = 13;
             // 
             // button1
             // 
-            button1.BackColor = SystemColors.ActiveCaptionText;
-            button1.Location = new Point(21, 100);
+            button1.BackColor = Color.FromArgb(38, 41, 43);
+            button1.ButtonSize = new Size(242, 52);
+            button1.ForeColor = Color.FromArgb(224, 233, 241);
+            button1.Location = new Point(21, 97);
             button1.Name = "button1";
             button1.Padding = new Padding(10);
-            button1.Size = new Size(242, 49);
-            button1.Style = Button.Styles.Normal;
+            button1.Size = new Size(242, 52);
+            button1.Style = Button.Styles.Light;
             button1.TabIndex = 12;
-            button1.TextContent = "button";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("NT Somic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label4.ForeColor = SystemColors.ControlDark;
-            label4.Location = new Point(23, 56);
-            label4.Name = "label4";
-            label4.Size = new Size(200, 18);
-            label4.TabIndex = 11;
-            label4.Text = "building materials store";
-            // 
-            // buttonIcon5
-            // 
-            buttonIcon5.BackColor = Color.Transparent;
-            buttonIcon5.BorderWidth = 0;
-            buttonIcon5.ForeColor = Color.FromArgb(96, 103, 110);
-            buttonIcon5.Icon = (Image)resources.GetObject("buttonIcon5.Icon");
-            buttonIcon5.IconInactive = (Image)resources.GetObject("buttonIcon5.IconInactive");
-            buttonIcon5.Location = new Point(18, 760);
-            buttonIcon5.Name = "buttonIcon5";
-            buttonIcon5.Padding = new Padding(12);
-            buttonIcon5.Size = new Size(284, 51);
-            buttonIcon5.Style = ButtonIcon.Styles.Inactive;
-            buttonIcon5.TabIndex = 11;
-            buttonIcon5.TextContent = "Выйти";
+            button1.TextContent = "+  создать пользователя";
             // 
             // Sidebar
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.Desktop;
-            Controls.Add(buttonIcon5);
-            Controls.Add(Badge);
-            Controls.Add(buttonIcon4);
-            Controls.Add(buttonIcon3);
-            Controls.Add(buttonIcon2);
-            Controls.Add(buttonIcon1);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            BackColor = Color.Transparent;
+            Controls.Add(panelRound1);
+            Controls.Add(Btn_Logout);
+            Controls.Add(Nav_Clients);
+            Controls.Add(Nav_Orders);
+            Controls.Add(Nav_Create);
+            Controls.Add(Nav_Products);
+            Controls.Add(Lable_Usertype);
+            Controls.Add(Label_Username);
             Controls.Add(Avatar);
             Name = "Sidebar";
             Padding = new Padding(15);
             Size = new Size(320, 829);
-            Badge.ResumeLayout(false);
-            Badge.PerformLayout();
+            panelRound1.ResumeLayout(false);
+            panelRound1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -219,16 +224,16 @@
         #endregion
 
         private AcrylicUI.Controls.AcrylicPanel Avatar;
-        private Label label1;
-        private Label label2;
-        private ButtonIcon buttonIcon1;
-        private ButtonIcon buttonIcon2;
-        private ButtonIcon buttonIcon3;
-        private ButtonIcon buttonIcon4;
-        private Panel Badge;
-        private Label label3;
+        private Label Label_Username;
+        private Label Lable_Usertype;
+        private ButtonIcon Nav_Products;
+        private ButtonIcon Nav_Create;
+        private ButtonIcon Nav_Orders;
+        private ButtonIcon Nav_Clients;
+        private Label Label_Company;
+        private Label Label_About;
+        private ButtonIcon Btn_Logout;
+        private PanelRound panelRound1;
         private Button button1;
-        private Label label4;
-        private ButtonIcon buttonIcon5;
     }
 }

@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace Blueprint.Components
 {
+    [ToolboxItem(true)]
     public partial class ButtonIcon : RoundedComponent
     {
         /* ---- [ PRESETS ] ---- */

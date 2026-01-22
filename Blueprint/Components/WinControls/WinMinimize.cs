@@ -9,6 +9,7 @@ using System.Windows.Forms;
 
 namespace Blueprint.Components.WinControls
 {
+    [ToolboxItem(true)]
     public partial class WinMinimize : RoundedComponent
     {
         public WinMinimize()

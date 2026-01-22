@@ -8,8 +8,8 @@ using System.Windows.Forms;
 
 namespace Blueprint.Components
 {
-    public partial class Sidebar : UserControl
-    {
+    [ToolboxItem(true)]
+    public partial class Sidebar : UserControl {
         public Sidebar()
         {
             InitializeComponent();

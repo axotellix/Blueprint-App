@@ -10,13 +10,15 @@ using System.Text;
 using System.Windows.Forms;
 
 namespace Blueprint.Components {
+    
+    [ToolboxItem(true)]
     public partial class Button : RoundedComponent {
         /* ---- [ PRESETS ] ---- */
 
         // button styles
         public enum Styles {
             Normal = 1,
-            Inactive = 2
+            Light = 2
         }
 
         // hover & press effect influence
@@ -28,11 +30,26 @@ namespace Blueprint.Components {
         /* ---- [ COMPONENT ] ---- */
 
         // [ set > Component props ]
+        private Size size;                      //: keep Component init size
         private String text = "button";
         private Font font = new Font("NT Somic", 10f);
         private Styles style = Styles.Normal;
         private Color BackColor_default;        //: keep Component state
         private Color BorderColor_default;      //: keep Component state
+
+        //# Prop: Size
+        [Category("Appearance")]
+        [Description("Размер кнопки")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        public Size ButtonSize
+        {
+            get => size;
+            set
+            {
+                size = value;
+                SetStyle();
+            }
+        }
 
         //# Prop: Text
         [Category("Appearance")]
@@ -85,38 +102,41 @@ namespace Blueprint.Components {
 
                 // normal style (background + border)
                 case Styles.Normal:
-                    Label.Text = text;
-                    Label.Font = font;
-                    this.BorderColor = GlassUIColors.GreyBorder;
-                    this.BackColor = GlassUIColors.GreyDark;
-                    this.BorderWidth = 1;
-                    BackColor_default = this.BackColor;
+                    this.Size           = size;
+                    Label.Text          = text;
+                    Label.Font          = font;
+                    this.BorderColor    = GlassUIColors.GreyBorder;
+                    this.BackColor      = GlassUIColors.GreyDark;
+                    this.BorderWidth    = 1;
+                    BackColor_default   = this.BackColor;
                     BorderColor_default = this.BorderColor;
-                    this.ForeColor = GlassUIColors.White;
+                    this.ForeColor      = GlassUIColors.White;
                     break;
 
                 // inactive style (no background & border)
-                case Styles.Inactive:
-                    Label.Text = text;
-                    Label.Font = font;
-                    this.BorderColor = Color.Transparent;
-                    this.BackColor = Color.Transparent;
-                    this.BorderWidth = 0;
-                    BackColor_default = this.BackColor;
+                case Styles.Light:
+                    this.Size           = size;
+                    Label.Text          = text;
+                    Label.Font          = font;
+                    this.BorderColor    = GlassUIColors.GreyBorderExtraLight;
+                    this.BackColor      = GlassUIColors.GreyCardLight;
+                    this.BorderWidth    = 1;
+                    BackColor_default   = this.BackColor;
                     BorderColor_default = this.BorderColor;
-                    this.ForeColor = GlassUIColors.Grey;
+                    this.ForeColor      = GlassUIColors.White;
                     break;
 
                 // default style (normal)
                 default:
-                    Label.Text = text;
-                    Label.Font = font;
-                    this.BorderColor = GlassUIColors.GreyBorder;
-                    this.BackColor = GlassUIColors.GreyDark;
-                    this.BorderWidth = 1;
-                    BackColor_default = this.BackColor;
+                    this.Size           = size;
+                    Label.Text          = text;
+                    Label.Font          = font;
+                    this.BorderColor    = GlassUIColors.GreyBorder;
+                    this.BackColor      = GlassUIColors.GreyDark;
+                    this.BorderWidth    = 1;
+                    BackColor_default   = this.BackColor;
                     BorderColor_default = this.BorderColor;
-                    this.ForeColor = GlassUIColors.White;
+                    this.ForeColor      = GlassUIColors.White;
                     break;
 
             }
@@ -125,109 +145,29 @@ namespace Blueprint.Components {
         //@ helper > set button style (icon, appearance)
         private void SetStyleHover(object sender, EventArgs e)
         {
-            switch (style)
-            {
-
-                // normal style (background + border)
-                case Styles.Normal:
-                    this.BackColor = BackColor_default.Lighten(HOVER_INFLUENCE);
-                    this.BorderColor = BorderColor_default.Lighten(HOVER_INFLUENCE);
-                    break;
-
-                // inactive style (no background & border)
-                case Styles.Inactive:
-                    this.BackColor = Color.FromArgb(HOVER_INFLUENCE, 247, 250, 255);
-                    this.BorderColor = Color.FromArgb(15 + HOVER_INFLUENCE, 247, 250, 255);
-                    break;
-
-                // default style (normal)
-                default:
-                    this.BackColor = BackColor_default.Lighten(HOVER_INFLUENCE);
-                    this.BorderColor = BorderColor_default.Lighten(HOVER_INFLUENCE);
-                    break;
-
-            }
+            this.BackColor = BackColor_default.Lighten(HOVER_INFLUENCE);
+            this.BorderColor = BorderColor_default.Lighten(HOVER_INFLUENCE);
         }
 
         //@ helper > set button style (icon, appearance)
         private void SetStyleHoverOut(object sender, EventArgs e)
         {
-            switch (style)
-            {
-
-                // normal style (background + border)
-                case Styles.Normal:
-                    this.BackColor = BackColor_default;
-                    this.BorderColor = BorderColor_default;
-                    break;
-
-                // inactive style (no background & border)
-                case Styles.Inactive:
-                    this.BackColor = Color.Transparent;
-                    this.BorderColor = Color.Transparent;
-                    break;
-
-                // default style (normal)
-                default:
-                    this.BackColor = BackColor_default;
-                    this.BorderColor = BorderColor_default;
-                    break;
-
-            }
+            this.BackColor = BackColor_default;
+            this.BorderColor = BorderColor_default;
         }
 
         //@ helper > set button style (icon, appearance)
         private void SetStylePress(object sender, EventArgs e)
         {
-            switch (style)
-            {
-
-                // normal style (background + border)
-                case Styles.Normal:
-                    this.BackColor = BackColor_default.Lighten(PRESS_INFLUENCE);
-                    this.BorderColor = BorderColor_default.Lighten(PRESS_INFLUENCE);
-                    break;
-
-                // inactive style (no background & border)
-                case Styles.Inactive:
-                    this.BackColor = Color.FromArgb(PRESS_INFLUENCE, 247, 250, 255);
-                    this.BorderColor = Color.FromArgb(15 + PRESS_INFLUENCE, 247, 250, 255);
-                    break;
-
-                // default style (normal)
-                default:
-                    this.BackColor = BackColor_default.Lighten(PRESS_INFLUENCE);
-                    this.BorderColor = BorderColor_default.Lighten(PRESS_INFLUENCE);
-                    break;
-
-            }
+            this.BackColor = BackColor_default.Lighten(PRESS_INFLUENCE);
+            this.BorderColor = BorderColor_default.Lighten(PRESS_INFLUENCE);
         }
 
         //@ helper > set button style (icon, appearance)
         private void SetStylePressOut(object sender, EventArgs e)
         {
-            switch (style)
-            {
-
-                // normal style (background + border)
-                case Styles.Normal:
-                    this.BackColor = BackColor_default.Lighten(HOVER_INFLUENCE);
-                    this.BorderColor = BorderColor_default.Lighten(HOVER_INFLUENCE);
-                    break;
-
-                // inactive style (no background & border)
-                case Styles.Inactive:
-                    this.BackColor = Color.FromArgb(HOVER_INFLUENCE, 247, 250, 255);
-                    this.BorderColor = Color.FromArgb(15 + HOVER_INFLUENCE, 247, 250, 255);
-                    break;
-
-                // default style (normal)
-                default:
-                    this.BackColor = BackColor_default.Lighten(HOVER_INFLUENCE);
-                    this.BorderColor = BorderColor_default.Lighten(HOVER_INFLUENCE);
-                    break;
-
-            }
+            this.BackColor = BackColor_default.Lighten(HOVER_INFLUENCE);
+            this.BorderColor = BorderColor_default.Lighten(HOVER_INFLUENCE);
         }
 
 
@@ -235,6 +175,7 @@ namespace Blueprint.Components {
         public Button()
         {
             InitializeComponent();
+            this.Load += Button_Load;
         }
 
 
@@ -253,7 +194,6 @@ namespace Blueprint.Components {
 
             this.MouseUp += SetStylePressOut;
             Label.MouseUp += SetStylePressOut;
-
 
             // set > component style
             SetStyle();

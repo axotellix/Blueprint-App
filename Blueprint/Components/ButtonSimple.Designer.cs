@@ -31,16 +31,17 @@
             // 
             // Label
             // 
-            Label.Anchor = AnchorStyles.None;
-            Label.AutoSize = true;
             Label.BackColor = Color.Transparent;
+            Label.Dock = DockStyle.Fill;
             Label.Font = new Font("NT Somic", 11.999999F, FontStyle.Regular, GraphicsUnit.Point, 204);
             Label.ForeColor = SystemColors.Control;
-            Label.Location = new Point(128, 15);
+            Label.Location = new Point(10, 10);
+            Label.Margin = new Padding(3);
             Label.Name = "Label";
-            Label.Size = new Size(79, 20);
+            Label.Size = new Size(326, 32);
             Label.TabIndex = 3;
             Label.Text = "Товары";
+            Label.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // Button
             // 
@@ -52,7 +53,6 @@
             Padding = new Padding(10);
             Size = new Size(346, 52);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion

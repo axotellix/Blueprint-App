@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="buttonIcon1.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Nav_Products.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAW
         JQAAFiUBSVIk8AAAAWVJREFUWEftVdFRxCAQTQl2oCXYgZZgB1rCdXB2cCVcCZZwJVjCJqOeCfngiB9+
@@ -130,7 +130,7 @@
         nm7CyW9+QUFVVT8Ld7QMwvwVEgAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="buttonIcon1.IconInactive" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Nav_Products.IconInactive" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAW
         JQAAFiUBSVIk8AAAAWFJREFUWEftVu1twyAQ9QjdoBkhG7QjdIOeVdmhSXDYoN2gI2SEjuAROgIjZIT0
@@ -142,7 +142,7 @@
         d35FRdM0/3cVsDGxq03eAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="buttonIcon2.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Nav_Create.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAW
         JQAAFiUBSVIk8AAAAepJREFUWEftVtFRwzAM7QhsQDeADWAT2AA2aDcoG3SEskFH6AhKjh5N3A/HgTs+
@@ -156,7 +156,7 @@
         frVe32pEURoLMkdXNAcfPl19mHDCbPYHiEd8dZyB84UAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="buttonIcon2.IconInactive" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Nav_Create.IconInactive" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAW
         JQAAFiUBSVIk8AAAAehJREFUWEftVuFZwjAQZQQ3kA10A93EVCUtQtJugBvoBoyAG3QERsgIjKB3l4Sk
@@ -170,7 +170,7 @@
         ntCUpiJbgzm8oin51MH/QZkRsFj8AVH/IGspiHpXAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="buttonIcon3.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Nav_Orders.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAW
         JQAAFiUBSVIk8AAAAVVJREFUWEftltFNwzAQhjNCN4AR2AA2oBvABh2BETJCR2CEjNARzgEEqYvk2jzw
@@ -182,7 +182,7 @@
         gA1PAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="buttonIcon3.IconInactive" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Nav_Orders.IconInactive" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAW
         JQAAFiUBSVIk8AAAAUlJREFUWEftltFxgzAMhhkhGzQjZINmg2aDimswToNtNsgIGYEROkJGyAiM0BFa
@@ -194,7 +194,7 @@
         QmCC
 </value>
   </data>
-  <data name="buttonIcon4.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Nav_Clients.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAW
         JQAAFiUBSVIk8AAAAQ1JREFUWEftleENwiAQhTuCIzhCN9AR3EA3qZs4iqMcjZoK/jipA+iBp1FLFRFM
@@ -205,7 +205,7 @@
         QmCC
 </value>
   </data>
-  <data name="buttonIcon4.IconInactive" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Nav_Clients.IconInactive" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAW
         JQAAFiUBSVIk8AAAARRJREFUWEftlY0NgjAQhRnBERiBDXQEN/BIoFQDtRvgJo7CKIzgCHqtlyB6Ij+t
@@ -216,7 +216,7 @@
         AABJRU5ErkJggg==
 </value>
   </data>
-  <data name="buttonIcon5.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Btn_Logout.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAW
         JQAAFiUBSVIk8AAAASdJREFUWEftld0RgjAQhCnBDrQEO9BOOEb5E8F0oB1YgiVYgiVYAiVYgubiCkRR
@@ -227,7 +227,7 @@
         lDocDsdAPO8Boh/PCiU1fcQAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="buttonIcon5.IconInactive" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Btn_Logout.IconInactive" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAW
         JQAAFiUBSVIk8AAAASdJREFUWEftld0RgjAQhCnBDrQEO9BOOEb5E8F0oB1YgiVYgiVYAiVYgubiCkRR
