@@ -2,14 +2,14 @@
 
 // import > GlassUI UI Library
 using Blueprint.Components;
+using Blueprint.Components.Tabs;
 using Blueprint.Utils.UI;
 
 
 /* ---- [ MAIN ] ---- */
 namespace Blueprint
 {
-    public partial class Form1 : GlassUIForm
-    {
+    public partial class Form1 : GlassUIForm {
         public Form1()
         {
             // set up > Form style
@@ -27,7 +27,37 @@ namespace Blueprint
         // handle > TabSwitched event (from Sidebar)
         private void SwitchTab(object sender, int TabIndex)
         {
-            Tab.Text = Convert.ToString(TabIndex);
+            // clear > prev Tab content
+            MainContainer.Controls.Clear();
+
+            // set > new Tab
+            UserControl tab;
+            switch (TabIndex) {
+                case 1:
+                    tab = new TabProducts();
+                    break;
+                case 2:
+                    tab = new TabCreateProduct();
+                    break;
+                case 3:
+                    tab = new TabOrders();
+                    break;
+                case 4:
+                    tab = new TabClients();
+                    break;
+                default:
+                    tab = new TabProducts();
+                    break;
+            }
+
+            // switch > new Tab content
+            MainContainer.Controls.Add(tab);
+            tab.BringToFront();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            SwitchTab(sender, 1);
         }
 
         private void button1_Click(object sender, EventArgs e)

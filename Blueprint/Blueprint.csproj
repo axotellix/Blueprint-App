@@ -13,6 +13,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Components\Tabs\TabCreateProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Components\Tabs\TabClients.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Components\Tabs\TabOrders.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Components\WinControls\WinMinimize.cs">
       <SubType>UserControl</SubType>
     </Compile>
