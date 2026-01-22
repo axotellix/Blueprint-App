@@ -1,7 +1,5 @@
-﻿namespace Blueprint.Components
-{
-    partial class ButtonIcon
-    {
+﻿namespace Blueprint.Components {
+    partial class Button{
         /// <summary> 
         /// Обязательная переменная конструктора.
         /// </summary>
@@ -28,53 +26,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            IconBox = new PictureBox();
             Label = new Label();
-            ((System.ComponentModel.ISupportInitialize)IconBox).BeginInit();
             SuspendLayout();
-            // 
-            // IconBox
-            // 
-            IconBox.Anchor = AnchorStyles.Left;
-            IconBox.BackColor = Color.Transparent;
-            IconBox.Location = new Point(12, 12);
-            IconBox.Name = "IconBox";
-            IconBox.Size = new Size(32, 31);
-            IconBox.TabIndex = 0;
-            IconBox.TabStop = false;
             // 
             // Label
             // 
-            Label.Anchor = AnchorStyles.Left;
+            Label.Anchor = AnchorStyles.None;
             Label.AutoSize = true;
             Label.BackColor = Color.Transparent;
             Label.Font = new Font("NT Somic", 11.999999F, FontStyle.Regular, GraphicsUnit.Point, 204);
             Label.ForeColor = SystemColors.Control;
-            Label.Location = new Point(58, 18);
+            Label.Location = new Point(128, 15);
             Label.Name = "Label";
             Label.Size = new Size(79, 20);
-            Label.TabIndex = 1;
+            Label.TabIndex = 3;
             Label.Text = "Товары";
             // 
-            // ButtonIcon
+            // Button
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
             Controls.Add(Label);
-            Controls.Add(IconBox);
-            Name = "ButtonIcon";
-            Padding = new Padding(12);
-            Size = new Size(346, 56);
-            Load += Button_Load;
-            ((System.ComponentModel.ISupportInitialize)IconBox).EndInit();
+            Name = "Button";
+            Padding = new Padding(10);
+            Size = new Size(346, 52);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private PictureBox IconBox;
         private Label Label;
     }
 }

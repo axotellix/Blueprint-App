@@ -13,7 +13,7 @@ namespace Blueprint
         {
             // set up > Form style
             this.BackColor = GlassUIColors.Dark;
-            this.FormOpacity = 200;
+            this.FormOpacity = 220;
             this.EFFECT = ACCENT_ENABLE_BLURBEHIND;
 
             InitializeComponent();

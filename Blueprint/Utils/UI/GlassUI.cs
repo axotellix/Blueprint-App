@@ -276,7 +276,7 @@ namespace Blueprint.Utils.UI {
             ACCENT_POLICY accent = new ACCENT_POLICY();
             accent.nAccentState = EFFECT;
             accent.nFlags = 2;
-            accent.nColor = Color.FromArgb(FormOpacity, Color.FromArgb(BackColor.B, BackColor.G, BackColor.R)).ToArgb();
+            accent.nColor = Color.FromArgb(FormOpacity, BackColor.B, BackColor.G, BackColor.R).ToArgb();
             accent.nAnimationId = 0;
 
             WindowCompositionAttributeData data = new WindowCompositionAttributeData();
@@ -327,7 +327,7 @@ namespace Blueprint.Utils.UI {
             ACCENT_POLICY accent = new ACCENT_POLICY();
             accent.nAccentState = accentState;
             accent.nFlags = 2;
-            accent.nColor = Color.FromArgb(FormOpacity, BackColor).ToArgb();
+            accent.nColor = Color.FromArgb(FormOpacity, BackColor.B, BackColor.G, BackColor.R).ToArgb();
             accent.nAnimationId = 0;
 
             WindowCompositionAttributeData data = new WindowCompositionAttributeData();

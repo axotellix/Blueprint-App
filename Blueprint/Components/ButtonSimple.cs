@@ -9,19 +9,17 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Blueprint.Components
-{
-    public partial class ButtonIcon : RoundedComponent
-    {
+namespace Blueprint.Components {
+    public partial class Button : RoundedComponent {
         /* ---- [ PRESETS ] ---- */
 
-         // button styles
+        // button styles
         public enum Styles {
             Normal = 1,
             Inactive = 2
         }
 
-         // hover & press effect influence
+        // hover & press effect influence
         private const int HOVER_INFLUENCE = 7;
         private const int PRESS_INFLUENCE = 4;
 
@@ -32,13 +30,11 @@ namespace Blueprint.Components
         // [ set > Component props ]
         private String text = "button";
         private Font font = new Font("NT Somic", 10f);
-        private Image icon;
-        private Image icon_inactive;
         private Styles style = Styles.Normal;
         private Color BackColor_default;        //: keep Component state
         private Color BorderColor_default;      //: keep Component state
 
-         //# Prop: Text
+        //# Prop: Text
         [Category("Appearance")]
         [Description("Текст кнопки")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
@@ -52,7 +48,7 @@ namespace Blueprint.Components
             }
         }
 
-         //# Prop: Font
+        //# Prop: Font
         [Category("Appearance")]
         [Description("Шрифт кнопки")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
@@ -62,34 +58,6 @@ namespace Blueprint.Components
             set
             {
                 font = value;
-                SetStyle();
-            }
-        }
-
-         //# Prop: Icon (image)
-        [Category("Appearance")]
-        [Description("Иконка кнопки")]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-        public Image Icon
-        {
-            get => icon;
-            set
-            {
-                icon = value;
-                SetStyle();
-            }
-        }
-
-         //# Prop: Icon Inactive (image)
-        [Category("Appearance")]
-        [Description("Иконка неактивной кнопки")]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-        public Image IconInactive
-        {
-            get => icon_inactive;
-            set
-            {
-                icon_inactive = value;
                 SetStyle();
             }
         }
@@ -109,9 +77,11 @@ namespace Blueprint.Components
         }
 
 
-         //@ helper > set button style (icon, appearance)
-        private void SetStyle() {
-            switch( style ) {
+        //@ helper > set button style (icon, appearance)
+        private void SetStyle()
+        {
+            switch (style)
+            {
 
                 // normal style (background + border)
                 case Styles.Normal:
@@ -123,9 +93,6 @@ namespace Blueprint.Components
                     BackColor_default = this.BackColor;
                     BorderColor_default = this.BorderColor;
                     this.ForeColor = GlassUIColors.White;
-                    if (icon != null) {
-                        IconBox.Image = icon;
-                    }
                     break;
 
                 // inactive style (no background & border)
@@ -138,10 +105,6 @@ namespace Blueprint.Components
                     BackColor_default = this.BackColor;
                     BorderColor_default = this.BorderColor;
                     this.ForeColor = GlassUIColors.Grey;
-                    if (icon_inactive != null)
-                    {
-                        IconBox.Image = icon_inactive;
-                    }
                     break;
 
                 // default style (normal)
@@ -154,17 +117,13 @@ namespace Blueprint.Components
                     BackColor_default = this.BackColor;
                     BorderColor_default = this.BorderColor;
                     this.ForeColor = GlassUIColors.White;
-                    if (icon != null)
-                    {
-                        IconBox.Image = icon;
-                    }
                     break;
 
             }
         }
 
-         //@ helper > set button style (icon, appearance)
-        private void SetStyleHover( object sender, EventArgs e )
+        //@ helper > set button style (icon, appearance)
+        private void SetStyleHover(object sender, EventArgs e)
         {
             switch (style)
             {
@@ -190,8 +149,8 @@ namespace Blueprint.Components
             }
         }
 
-         //@ helper > set button style (icon, appearance)
-        private void SetStyleHoverOut( object sender, EventArgs e )
+        //@ helper > set button style (icon, appearance)
+        private void SetStyleHoverOut(object sender, EventArgs e)
         {
             switch (style)
             {
@@ -217,8 +176,8 @@ namespace Blueprint.Components
             }
         }
 
-         //@ helper > set button style (icon, appearance)
-        private void SetStylePress( object sender, EventArgs e )
+        //@ helper > set button style (icon, appearance)
+        private void SetStylePress(object sender, EventArgs e)
         {
             switch (style)
             {
@@ -244,8 +203,8 @@ namespace Blueprint.Components
             }
         }
 
-         //@ helper > set button style (icon, appearance)
-        private void SetStylePressOut( object sender, EventArgs e )
+        //@ helper > set button style (icon, appearance)
+        private void SetStylePressOut(object sender, EventArgs e)
         {
             switch (style)
             {
@@ -273,7 +232,7 @@ namespace Blueprint.Components
 
 
         // [ init > component ]
-        public ButtonIcon()
+        public Button()
         {
             InitializeComponent();
         }
@@ -284,19 +243,15 @@ namespace Blueprint.Components
         {
             // register > events
             this.MouseEnter += SetStyleHover;
-            IconBox.MouseEnter += SetStyleHover;
             Label.MouseEnter += SetStyleHover;
 
             this.MouseLeave += SetStyleHoverOut;
-            IconBox.MouseLeave += SetStyleHoverOut;
             Label.MouseLeave += SetStyleHoverOut;
 
             this.MouseDown += SetStylePress;
-            IconBox.MouseDown += SetStylePress;
             Label.MouseDown += SetStylePress;
 
             this.MouseUp += SetStylePressOut;
-            IconBox.MouseUp += SetStylePressOut;
             Label.MouseUp += SetStylePressOut;
 
 

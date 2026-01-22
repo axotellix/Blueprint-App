@@ -29,29 +29,20 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            acrylicPanel2 = new AcrylicUI.Controls.AcrylicPanel();
             MainContainer = new Blueprint.Components.MainContainer();
             winClose1 = new Blueprint.Components.WinControls.WinClose();
             winMinimize1 = new Blueprint.Components.WinControls.WinMinimize();
-            panel1 = new Panel();
-            button1 = new Blueprint.Components.ButtonIcon();
-            panel1.SuspendLayout();
+            buttonIcon1 = new Blueprint.Components.ButtonIcon();
+            buttonIcon2 = new Blueprint.Components.ButtonIcon();
             SuspendLayout();
-            // 
-            // acrylicPanel2
-            // 
-            acrylicPanel2.HasRoundedCorners = true;
-            acrylicPanel2.Location = new Point(13, 65);
-            acrylicPanel2.Name = "acrylicPanel2";
-            acrylicPanel2.Size = new Size(50, 50);
-            acrylicPanel2.TabIndex = 2;
             // 
             // MainContainer
             // 
             MainContainer.BackColor = Color.FromArgb(19, 20, 21);
-            MainContainer.Location = new Point(311, 48);
+            MainContainer.BorderRadius = 20;
+            MainContainer.Location = new Point(327, 48);
             MainContainer.Name = "MainContainer";
-            MainContainer.Size = new Size(1223, 829);
+            MainContainer.Size = new Size(1250, 829);
             MainContainer.TabIndex = 5;
             // 
             // winClose1
@@ -72,47 +63,57 @@
             winMinimize1.Size = new Size(30, 30);
             winMinimize1.TabIndex = 8;
             // 
-            // panel1
+            // buttonIcon1
             // 
-            panel1.Controls.Add(button1);
-            panel1.Location = new Point(3, 48);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(300, 829);
-            panel1.TabIndex = 9;
+            buttonIcon1.BackColor = Color.FromArgb(19, 20, 21);
+            buttonIcon1.ForeColor = Color.FromArgb(224, 233, 241);
+            buttonIcon1.Icon = (Image)resources.GetObject("buttonIcon1.Icon");
+            buttonIcon1.IconInactive = (Image)resources.GetObject("buttonIcon1.IconInactive");
+            buttonIcon1.Location = new Point(23, 140);
+            buttonIcon1.Name = "buttonIcon1";
+            buttonIcon1.Padding = new Padding(12);
+            buttonIcon1.Size = new Size(270, 70);
+            buttonIcon1.Style = Components.ButtonIcon.Styles.Normal;
+            buttonIcon1.TabIndex = 9;
+            buttonIcon1.TextContent = "button";
             // 
-            // button1
+            // buttonIcon2
             // 
-            button1.BackColor = SystemColors.ActiveCaptionText;
-            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
-            button1.Location = new Point(20, 122);
-            button1.Name = "button1";
-            button1.Padding = new Padding(12);
-            button1.Size = new Size(252, 62);
-            button1.TabIndex = 0;
+            buttonIcon2.BackColor = Color.Transparent;
+            buttonIcon2.BorderWidth = 0;
+            buttonIcon2.ForeColor = Color.FromArgb(96, 103, 110);
+            buttonIcon2.Icon = (Image)resources.GetObject("buttonIcon2.Icon");
+            buttonIcon2.IconInactive = (Image)resources.GetObject("buttonIcon2.IconInactive");
+            buttonIcon2.Location = new Point(23, 225);
+            buttonIcon2.Name = "buttonIcon2";
+            buttonIcon2.Padding = new Padding(12);
+            buttonIcon2.Size = new Size(270, 70);
+            buttonIcon2.Style = Components.ButtonIcon.Styles.Inactive;
+            buttonIcon2.TabIndex = 10;
+            buttonIcon2.TextContent = "button";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1557, 900);
+            ClientSize = new Size(1600, 900);
+            Controls.Add(buttonIcon2);
+            Controls.Add(buttonIcon1);
             Controls.Add(winMinimize1);
             Controls.Add(winClose1);
             Controls.Add(MainContainer);
-            Controls.Add(acrylicPanel2);
-            Controls.Add(panel1);
+            ForeColor = SystemColors.ActiveCaptionText;
             Name = "Form1";
             Padding = new Padding(20);
             Text = "Form1";
-            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-        private AcrylicUI.Controls.AcrylicPanel acrylicPanel2;
         private Components.MainContainer MainContainer;
         private Components.WinControls.WinClose winClose1;
         private Components.WinControls.WinMinimize winMinimize1;
-        private Panel panel1;
-        private Components.ButtonIcon button1;
+        private Components.ButtonIcon buttonIcon1;
+        private Components.ButtonIcon buttonIcon2;
     }
 }
