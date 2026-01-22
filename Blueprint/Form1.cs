@@ -24,5 +24,10 @@ namespace Blueprint
         {
             Application.Exit();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(Convert.ToString(this.BackColor));
+        }
     }
 }
