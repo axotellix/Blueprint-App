@@ -10,12 +10,37 @@ using System.Windows.Forms;
 
 namespace Blueprint.Components
 {
-    public partial class Button : RoundedComponent
+    public partial class ButtonIcon : RoundedComponent
     {
+        // set > Component props
+        private Image icon;
+
+         // Prop: Icon (image)
+        [Category("Appearance")]
+        [Description("Иконка кнопки")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public Image Icon
+        {
+            get => icon;
+            set
+            {
+                icon = value;
+                SetIcon();
+            }
+        }
+
+        private void SetIcon() {
+            if( icon != null ) {
+                IconBox.Image = icon;
+            }
+        }
+
+
+
         // keep > Component state
         private Color BackColor_default;
 
-        public Button()
+        public ButtonIcon()
         {
             InitializeComponent();
             BackColor_default = this.BackColor;
