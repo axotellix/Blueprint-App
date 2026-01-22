@@ -1,6 +1,7 @@
 /* ---- [ IMPORTS ] ---- */
 
 // import > GlassUI UI Library
+using Blueprint.Components;
 using Blueprint.Utils.UI;
 
 
@@ -18,6 +19,15 @@ namespace Blueprint
 
             InitializeComponent();
             MainContainer.BorderColor = GlassUIColors.GreyBorder;
+
+            // get > active tab (when swicthed)
+            SidebarMain.TabSwitched += SwitchTab;
+        }
+
+        // handle > TabSwitched event (from Sidebar)
+        private void SwitchTab(object sender, int TabIndex)
+        {
+            Tab.Text = Convert.ToString(TabIndex);
         }
 
         private void button1_Click(object sender, EventArgs e)

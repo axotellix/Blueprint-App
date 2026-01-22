@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Windows.Forms;
 
@@ -12,6 +13,7 @@ namespace Blueprint.Components
     public partial class Sidebar : UserControl {
 
         private ButtonIcon active_button;
+        public event EventHandler<int> TabSwitched;
 
         public Sidebar()
         {
@@ -35,21 +37,25 @@ namespace Blueprint.Components
         private void Nav_Products_Click(object sender, EventArgs e)
         {
             SetActiveButton(sender as ButtonIcon);
+            TabSwitched?.Invoke(this, 1);
         }
 
         private void Nav_Create_Click(object sender, EventArgs e)
         {
             SetActiveButton(sender as ButtonIcon);
+            TabSwitched?.Invoke(this, 2);
         }
 
         private void Nav_Orders_Click(object sender, EventArgs e)
         {
             SetActiveButton(sender as ButtonIcon);
+            TabSwitched?.Invoke(this, 3);
         }
 
         private void Nav_Clients_Click(object sender, EventArgs e)
         {
             SetActiveButton(sender as ButtonIcon);
+            TabSwitched?.Invoke(this, 4);
         }
     }
 }

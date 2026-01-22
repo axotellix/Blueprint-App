@@ -31,7 +31,8 @@
             MainContainer = new Blueprint.Components.MainContainer();
             winClose1 = new Blueprint.Components.WinControls.WinClose();
             winMinimize1 = new Blueprint.Components.WinControls.WinMinimize();
-            sidebar1 = new Blueprint.Components.Sidebar();
+            SidebarMain = new Blueprint.Components.Sidebar();
+            Tab = new Label();
             SuspendLayout();
             // 
             // MainContainer
@@ -61,21 +62,34 @@
             winMinimize1.Size = new Size(30, 30);
             winMinimize1.TabIndex = 8;
             // 
-            // sidebar1
+            // SidebarMain
             // 
-            sidebar1.BackColor = SystemColors.Desktop;
-            sidebar1.Location = new Point(2, 48);
-            sidebar1.Name = "sidebar1";
-            sidebar1.Padding = new Padding(15);
-            sidebar1.Size = new Size(320, 829);
-            sidebar1.TabIndex = 9;
+            SidebarMain.BackColor = SystemColors.Desktop;
+            SidebarMain.Location = new Point(2, 48);
+            SidebarMain.Name = "SidebarMain";
+            SidebarMain.Padding = new Padding(15);
+            SidebarMain.Size = new Size(320, 829);
+            SidebarMain.TabIndex = 9;
+            // 
+            // Tab
+            // 
+            Tab.AutoSize = true;
+            Tab.BackColor = Color.Transparent;
+            Tab.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            Tab.ForeColor = SystemColors.Control;
+            Tab.Location = new Point(940, 409);
+            Tab.Name = "Tab";
+            Tab.Size = new Size(45, 54);
+            Tab.TabIndex = 10;
+            Tab.Text = "1";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1600, 900);
-            Controls.Add(sidebar1);
+            Controls.Add(Tab);
+            Controls.Add(SidebarMain);
             Controls.Add(winMinimize1);
             Controls.Add(winClose1);
             Controls.Add(MainContainer);
@@ -84,12 +98,14 @@
             Padding = new Padding(20);
             Text = "Form1";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
         private Components.MainContainer MainContainer;
         private Components.WinControls.WinClose winClose1;
         private Components.WinControls.WinMinimize winMinimize1;
-        private Components.Sidebar sidebar1;
+        private Components.Sidebar SidebarMain;
+        private Label Tab;
     }
 }
