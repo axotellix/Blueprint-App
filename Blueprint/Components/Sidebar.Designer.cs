@@ -88,6 +88,7 @@
             Nav_Products.Style = ButtonIcon.Styles.Normal;
             Nav_Products.TabIndex = 6;
             Nav_Products.TextContent = "Товары";
+            Nav_Products.Click += Nav_Products_Click;
             // 
             // Nav_Create
             // 
@@ -103,6 +104,7 @@
             Nav_Create.Style = ButtonIcon.Styles.Inactive;
             Nav_Create.TabIndex = 7;
             Nav_Create.TextContent = "Создать товар";
+            Nav_Create.Click += Nav_Create_Click;
             // 
             // Nav_Orders
             // 
@@ -118,6 +120,7 @@
             Nav_Orders.Style = ButtonIcon.Styles.Inactive;
             Nav_Orders.TabIndex = 8;
             Nav_Orders.TextContent = "Заказы";
+            Nav_Orders.Click += Nav_Orders_Click;
             // 
             // Nav_Clients
             // 
@@ -133,6 +136,7 @@
             Nav_Clients.Style = ButtonIcon.Styles.Inactive;
             Nav_Clients.TabIndex = 9;
             Nav_Clients.TextContent = "Клиенты";
+            Nav_Clients.Click += Nav_Clients_Click;
             // 
             // Label_About
             // 
