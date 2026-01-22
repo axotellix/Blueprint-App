@@ -46,7 +46,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaptionText;
+            BackColor = Color.Transparent;
             Controls.Add(label1);
             Name = "TabOrders";
             Padding = new Padding(20);

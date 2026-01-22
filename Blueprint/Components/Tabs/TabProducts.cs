@@ -8,9 +8,12 @@ using System.Windows.Forms;
 
 namespace Blueprint.Components.Tabs {
     public partial class TabProducts : UserControl {
+
+        [ToolboxItem(false)]
         public TabProducts()
         {
             InitializeComponent();
         }
     }
+
 }

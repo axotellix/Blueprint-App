@@ -32,6 +32,7 @@
             winClose1 = new Blueprint.Components.WinControls.WinClose();
             winMinimize1 = new Blueprint.Components.WinControls.WinMinimize();
             SidebarMain = new Blueprint.Components.Sidebar();
+            productCard1 = new Blueprint.Components.ProductCard();
             SuspendLayout();
             // 
             // MainContainer
@@ -70,11 +71,22 @@
             SidebarMain.Size = new Size(320, 829);
             SidebarMain.TabIndex = 9;
             // 
+            // productCard1
+            // 
+            productCard1.AutoSize = true;
+            productCard1.BackColor = Color.FromArgb(27, 29, 31);
+            productCard1.Location = new Point(372, 241);
+            productCard1.Name = "productCard1";
+            productCard1.Padding = new Padding(10);
+            productCard1.Size = new Size(260, 310);
+            productCard1.TabIndex = 11;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1600, 900);
+            Controls.Add(productCard1);
             Controls.Add(SidebarMain);
             Controls.Add(winMinimize1);
             Controls.Add(winClose1);
@@ -85,6 +97,7 @@
             Text = "Form1";
             Load += Form1_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -92,5 +105,6 @@
         private Components.WinControls.WinClose winClose1;
         private Components.WinControls.WinMinimize winMinimize1;
         private Components.Sidebar SidebarMain;
+        private Components.ProductCard productCard1;
     }
 }

@@ -7,10 +7,13 @@ using System.Text;
 using System.Windows.Forms;
 
 namespace Blueprint.Components.Tabs {
+
+    [ToolboxItem(false)]
     public partial class TabOrders : UserControl {
         public TabOrders()
         {
             InitializeComponent();
         }
     }
+
 }
