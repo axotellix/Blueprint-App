@@ -10,6 +10,21 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Blueprint.Components {
     public partial class Input : UserControl {
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public string TextValue
+        {
+            get => InputTextbox.Text;
+            set => InputTextbox.Text = value;
+        }
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public string Placeholder
+        {
+            get => InputTextbox.PlaceholderText;
+            set => InputTextbox.PlaceholderText = value;
+        }
+
         public Input()
         {
             InitializeComponent();
@@ -19,6 +34,8 @@ namespace Blueprint.Components {
         {
             InputTextbox.BorderStyle = BorderStyle.None;
             InputTextbox.Size = InputBackground.Size;
+
+            Placeholder = InputTextbox.PlaceholderText;
         }
 
         // on > focus
@@ -35,7 +52,12 @@ namespace Blueprint.Components {
         private void InputTextbox_Layout(object sender, LayoutEventArgs e)
         {
             InputTextbox.BorderStyle = BorderStyle.None;
-            InputTextbox.Size = InputBackground.Size;;
+            InputTextbox.Size = InputBackground.Size; ;
+        }
+
+        private void InputTextbox_TextChanged(object sender, EventArgs e)
+        {
+            TextValue = InputTextbox.Text;
         }
     }
 }

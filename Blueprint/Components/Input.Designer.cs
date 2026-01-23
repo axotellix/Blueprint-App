@@ -56,6 +56,7 @@
             InputTextbox.PlaceholderText = "введите название товара ...";
             InputTextbox.Size = new Size(185, 27);
             InputTextbox.TabIndex = 0;
+            InputTextbox.TextChanged += InputTextbox_TextChanged;
             InputTextbox.Layout += InputTextbox_Layout;
             // 
             // Input
