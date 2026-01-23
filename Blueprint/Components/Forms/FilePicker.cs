@@ -124,6 +124,7 @@ namespace Blueprint.Components.Forms {
 
                 // Если нужен абсолютный путь:
                 // FilePath = destinationPath;
+                MessageBox.Show(FilePath);
 
                 // set > file preview image
                 setFilePreview(projectRoot + FilePath);

@@ -82,7 +82,7 @@
             ForeColor = SystemColors.ActiveCaptionText;
             Name = "Form1";
             Padding = new Padding(20);
-            Text = "Form1";
+            Text = " ";
             Load += Form1_Load;
             ResumeLayout(false);
         }
