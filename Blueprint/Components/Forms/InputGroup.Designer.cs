@@ -81,7 +81,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Black;
+            BackColor = Color.Transparent;
             Controls.Add(ErrMsg);
             Controls.Add(ErrImg);
             Controls.Add(InputTextbox);

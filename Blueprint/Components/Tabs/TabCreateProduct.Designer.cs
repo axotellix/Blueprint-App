@@ -30,6 +30,8 @@
             inputGroup1 = new Blueprint.Components.Forms.InputGroup();
             inputGroup2 = new Blueprint.Components.Forms.InputGroup();
             button1 = new Button();
+            filePicker1 = new Blueprint.Components.Forms.FilePicker();
+            InputLabel = new Label();
             SuspendLayout();
             // 
             // Label_Username
@@ -45,10 +47,10 @@
             // 
             // inputGroup1
             // 
-            inputGroup1.BackColor = Color.Black;
+            inputGroup1.BackColor = Color.Transparent;
             inputGroup1.ErrMsgText = null;
             inputGroup1.LabelText = "название товара";
-            inputGroup1.Location = new Point(18, 104);
+            inputGroup1.Location = new Point(18, 113);
             inputGroup1.Name = "inputGroup1";
             inputGroup1.Padding = new Padding(10);
             inputGroup1.Placeholder = "введите название товара";
@@ -57,10 +59,10 @@
             // 
             // inputGroup2
             // 
-            inputGroup2.BackColor = Color.Black;
+            inputGroup2.BackColor = Color.Transparent;
             inputGroup2.ErrMsgText = null;
             inputGroup2.LabelText = "цена товара";
-            inputGroup2.Location = new Point(18, 229);
+            inputGroup2.Location = new Point(18, 238);
             inputGroup2.Name = "inputGroup2";
             inputGroup2.Padding = new Padding(10);
             inputGroup2.Placeholder = "введите цену товара";
@@ -69,22 +71,44 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.FromArgb(19, 20, 21);
+            button1.BackColor = Color.FromArgb(38, 41, 43);
             button1.ButtonSize = new Size(170, 42);
             button1.ForeColor = Color.FromArgb(224, 233, 241);
-            button1.Location = new Point(32, 383);
+            button1.Location = new Point(33, 405);
             button1.Name = "button1";
             button1.Padding = new Padding(10);
-            button1.Size = new Size(140, 42);
-            button1.Style = Button.Styles.Normal;
+            button1.Size = new Size(170, 42);
+            button1.Style = Button.Styles.Light;
             button1.TabIndex = 10;
             button1.TextContent = "создать";
+            // 
+            // filePicker1
+            // 
+            filePicker1.BackColor = Color.FromArgb(19, 20, 21);
+            filePicker1.Location = new Point(631, 127);
+            filePicker1.Name = "filePicker1";
+            filePicker1.Size = new Size(373, 216);
+            filePicker1.TabIndex = 11;
+            // 
+            // InputLabel
+            // 
+            InputLabel.AutoSize = true;
+            InputLabel.BackColor = Color.Transparent;
+            InputLabel.Font = new Font("NT Somic", 10.1999989F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            InputLabel.ForeColor = SystemColors.ButtonFace;
+            InputLabel.Location = new Point(642, 98);
+            InputLabel.Name = "InputLabel";
+            InputLabel.Size = new Size(108, 17);
+            InputLabel.TabIndex = 12;
+            InputLabel.Text = "фото товара";
             // 
             // TabCreateProduct
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Black;
+            BackColor = Color.Transparent;
+            Controls.Add(InputLabel);
+            Controls.Add(filePicker1);
             Controls.Add(button1);
             Controls.Add(inputGroup2);
             Controls.Add(inputGroup1);
@@ -102,5 +126,7 @@
         private Forms.InputGroup inputGroup1;
         private Forms.InputGroup inputGroup2;
         private Button button1;
+        private Forms.FilePicker filePicker1;
+        private Label InputLabel;
     }
 }

@@ -76,6 +76,7 @@ namespace Blueprint.Components.Forms {
 
         private void InputGroup_Load(object sender, EventArgs e)
         {
+            this.BackColor = Color.Transparent;
             ErrImg.Visible = false;
         }
     }
