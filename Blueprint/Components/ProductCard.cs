@@ -14,6 +14,14 @@ namespace Blueprint.Components {
         public ProductCard()
         {
             InitializeComponent();
+
+            this.MouseEnter += Card_Hover;
+            ProductPicture.MouseEnter += Card_Hover;
+            BtnEdit.MouseEnter += Card_Hover;
+
+            this.MouseLeave += Card_HoverOut;
+            ProductPicture.MouseLeave += Card_HoverOut;
+            BtnEdit.MouseLeave += Card_HoverOut;
             
         }
 
@@ -31,6 +39,17 @@ namespace Blueprint.Components {
             // set > button size & location
             BtnEdit.Size = new Size(234, 46);
             BtnEdit.Location = new Point(13, 251);
+        }
+
+        private void Card_Hover(object sender, EventArgs e)
+        {
+            this.BackColor = GlassUIColors.GreyCard.Lighten(2);
+            this.BorderColor = GlassUIColors.GreyBorderLight.Lighten(2);
+        }
+        private void Card_HoverOut(object sender, EventArgs e)
+        {
+            this.BackColor = GlassUIColors.GreyCard;
+            this.BorderColor = GlassUIColors.GreyBorderLight;
         }
     }
 
