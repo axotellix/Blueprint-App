@@ -11,6 +11,21 @@ namespace Blueprint.Components {
 
     [ToolboxItem(true)]
     public partial class ProductCard : RoundedComponent {
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public String ProductNameText {
+            set {
+                Label_ProductName.Text = value;
+            }
+        }
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public String Price {
+            set {
+                Label_About.Text = value;
+            }
+        }
+
         public ProductCard()
         {
             InitializeComponent();

@@ -30,7 +30,7 @@
             ProductPicture = new PictureBox();
             BtnEdit = new Button();
             Label_About = new Label();
-            Label_Company = new Label();
+            Label_ProductName = new Label();
             ((System.ComponentModel.ISupportInitialize)ProductPicture).BeginInit();
             SuspendLayout();
             // 
@@ -40,7 +40,7 @@
             ProductPicture.Image = (Image)resources.GetObject("ProductPicture.Image");
             ProductPicture.Location = new Point(13, 13);
             ProductPicture.Name = "ProductPicture";
-            ProductPicture.Size = new Size(234, 150);
+            ProductPicture.Size = new Size(136, 136);
             ProductPicture.SizeMode = PictureBoxSizeMode.Zoom;
             ProductPicture.TabIndex = 19;
             ProductPicture.TabStop = false;
@@ -70,17 +70,17 @@
             Label_About.TabIndex = 16;
             Label_About.Text = "1000 р.";
             // 
-            // Label_Company
+            // Label_ProductName
             // 
-            Label_Company.AutoSize = true;
-            Label_Company.BackColor = Color.Transparent;
-            Label_Company.Font = new Font("NT Somic Semibold", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            Label_Company.ForeColor = SystemColors.Control;
-            Label_Company.Location = new Point(13, 180);
-            Label_Company.Name = "Label_Company";
-            Label_Company.Size = new Size(224, 20);
-            Label_Company.TabIndex = 17;
-            Label_Company.Text = "Металлические балки";
+            Label_ProductName.AutoSize = true;
+            Label_ProductName.BackColor = Color.Transparent;
+            Label_ProductName.Font = new Font("NT Somic Semibold", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            Label_ProductName.ForeColor = SystemColors.Control;
+            Label_ProductName.Location = new Point(13, 180);
+            Label_ProductName.Name = "Label_ProductName";
+            Label_ProductName.Size = new Size(224, 20);
+            Label_ProductName.TabIndex = 17;
+            Label_ProductName.Text = "Металлические балки";
             // 
             // ProductCard
             // 
@@ -90,7 +90,7 @@
             Controls.Add(ProductPicture);
             Controls.Add(BtnEdit);
             Controls.Add(Label_About);
-            Controls.Add(Label_Company);
+            Controls.Add(Label_ProductName);
             Name = "ProductCard";
             Padding = new Padding(10);
             Size = new Size(260, 310);
@@ -105,6 +105,6 @@
         private PictureBox ProductPicture;
         private Button BtnEdit;
         private Label Label_About;
-        private Label Label_Company;
+        private Label Label_ProductName;
     }
 }

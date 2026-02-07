@@ -26,7 +26,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Lable_Usertype = new Label();
+            Lable_ProductsAmount = new Label();
             Label_Username = new Label();
             FlowContainer = new FlowLayoutPanel();
             productCard1 = new ProductCard();
@@ -50,16 +50,16 @@
             panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // Lable_Usertype
+            // Lable_ProductsAmount
             // 
-            Lable_Usertype.AutoSize = true;
-            Lable_Usertype.Font = new Font("NT Somic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            Lable_Usertype.ForeColor = SystemColors.ControlDark;
-            Lable_Usertype.Location = new Point(28, 66);
-            Lable_Usertype.Name = "Lable_Usertype";
-            Lable_Usertype.Size = new Size(108, 18);
-            Lable_Usertype.TabIndex = 7;
-            Lable_Usertype.Text = "всего: 0 шт.";
+            Lable_ProductsAmount.AutoSize = true;
+            Lable_ProductsAmount.Font = new Font("NT Somic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            Lable_ProductsAmount.ForeColor = SystemColors.ControlDark;
+            Lable_ProductsAmount.Location = new Point(28, 66);
+            Lable_ProductsAmount.Name = "Lable_ProductsAmount";
+            Lable_ProductsAmount.Size = new Size(108, 18);
+            Lable_ProductsAmount.TabIndex = 7;
+            Lable_ProductsAmount.Text = "всего: 0 шт.";
             // 
             // Label_Username
             // 
@@ -270,7 +270,7 @@
             Controls.Add(input1);
             Controls.Add(ScrollBarCustom);
             Controls.Add(Scrollbarz);
-            Controls.Add(Lable_Usertype);
+            Controls.Add(Lable_ProductsAmount);
             Controls.Add(Label_Username);
             Controls.Add(panel1);
             Name = "TabProducts";
@@ -285,7 +285,7 @@
 
         #endregion
 
-        private Label Lable_Usertype;
+        private Label Lable_ProductsAmount;
         private Label Label_Username;
         private FlowLayoutPanel FlowContainer;
         private ProductCard productCard1;

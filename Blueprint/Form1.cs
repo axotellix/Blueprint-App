@@ -76,7 +76,7 @@ namespace Blueprint
             //[DB] check > if connection open
             if (sqlConnection.State == ConnectionState.Open)
             {
-                MessageBox.Show("Open!");
+                //MessageBox.Show("Open!");
             }
         }
 
