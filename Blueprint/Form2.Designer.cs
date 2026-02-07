@@ -29,6 +29,7 @@
             winClose1 = new Blueprint.Components.WinControls.WinClose();
             winMinimize1 = new Blueprint.Components.WinControls.WinMinimize();
             mainContainer1 = new Blueprint.Components.MainContainer();
+            FlowContainer = new FlowLayoutPanel();
             SuspendLayout();
             // 
             // winClose1
@@ -52,21 +53,31 @@
             // mainContainer1
             // 
             mainContainer1.BackColor = Color.FromArgb(19, 20, 21);
-            mainContainer1.Location = new Point(31, 70);
+            mainContainer1.Location = new Point(31, 59);
             mainContainer1.Name = "mainContainer1";
-            mainContainer1.Size = new Size(1160, 593);
+            mainContainer1.Size = new Size(1160, 674);
             mainContainer1.TabIndex = 2;
+            // 
+            // FlowContainer
+            // 
+            FlowContainer.BackColor = Color.Transparent;
+            FlowContainer.Location = new Point(48, 78);
+            FlowContainer.Name = "FlowContainer";
+            FlowContainer.Size = new Size(1123, 635);
+            FlowContainer.TabIndex = 3;
             // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1222, 698);
+            ClientSize = new Size(1222, 762);
+            Controls.Add(FlowContainer);
             Controls.Add(mainContainer1);
             Controls.Add(winMinimize1);
             Controls.Add(winClose1);
             Name = "Form2";
             Text = "Form2";
+            Load += Form2_Load;
             ResumeLayout(false);
         }
 
@@ -75,5 +86,6 @@
         private Components.WinControls.WinClose winClose1;
         private Components.WinControls.WinMinimize winMinimize1;
         private Components.MainContainer mainContainer1;
+        private FlowLayoutPanel FlowContainer;
     }
 }
