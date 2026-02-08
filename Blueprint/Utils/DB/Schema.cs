@@ -216,5 +216,27 @@ namespace Blueprint.Utils.DB {
                 return result; 
             }
         }
+
+        //@ delete > record
+        public int Delete()
+        {
+            // open > connection to DB
+            this.OpenConn();
+
+            //? if > filter applied (otherwise - whole table will be emptied)
+            if (filter == "") {
+                throw new Exception("Не указана запись, которую нужно удалить");
+            } else {
+                query = $"DELETE FROM {table} {filter}";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    int result = cmd.ExecuteNonQuery();
+                    this.CloseConn();
+                    return result;
+                }
+            }    
+        }
+
     }
 }

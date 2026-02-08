@@ -27,10 +27,7 @@ namespace Blueprint {
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            Schema.Table("Products").Where("product_name", "=", "new product").Set(
-                    "product_name = 'upd product'",    
-                    "price = 1100"    
-                );
+            Schema.Table("Products").Where("product_name", "=", "upd product").Delete();
 
             //var products = Schema.Table("Products").All();
             var products = Schema.Table("Products").Select("*").Where("price", ">", 400).Get();
