@@ -1,3 +1,5 @@
+global using static Blueprint.Utils.Helpers.Helpers;
+
 namespace Blueprint
 {
     internal static class Program

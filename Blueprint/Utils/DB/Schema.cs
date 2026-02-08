@@ -22,9 +22,10 @@ namespace Blueprint.Utils.DB {
     public class _Schema {
 
         // [ PRESETS ]
-        private SqlConnection conn = null;  // keep > connection
-        private String query;               // keep > SQL query
-        private String table;               // keep > DB table
+        private SqlConnection conn = null;                  // keep > connection
+        private String query;                               // keep > SQL query
+        private String table;                               // keep > DB table
+        private List<String> fields = new List<String>();   // keep > selected fields
 
         public _Schema(String t)
         {
@@ -46,6 +47,7 @@ namespace Blueprint.Utils.DB {
             conn.Close();
         }
 
+
         // [ METHODS ]
         //@ get > all records
         public SqlDataReader All()
@@ -56,7 +58,7 @@ namespace Blueprint.Utils.DB {
             // build > SQL query
             query = $"SELECT * FROM {table}";
 
-            // create > SQL command
+            // run > SQL query
             using (SqlCommand cmd = new SqlCommand(query, conn))
             {
                 // return > result
@@ -65,5 +67,34 @@ namespace Blueprint.Utils.DB {
 
         }
 
+        //@ select > specific fields
+        public _Schema Select( params String[] _fields )
+        {
+            fields.Clear();
+            fields.AddRange(_fields);
+            query = $"SELECT {String.Join(", ", fields)} FROM {table}";
+            return this;
+        }
+
+        //@ filter > selection
+        public _Schema Where( String field, String expr, object value )
+        {
+            query += $" WHERE {field} {expr} {value}";
+            return this;
+        }
+
+        //@ run > select command
+        public SqlDataReader Get()
+        {
+            // open > connection to DB
+            this.OpenConn();
+
+            // run > SQL query
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                // return > result
+                return cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            }
+        }
     }
 }

@@ -16,6 +16,7 @@ namespace Blueprint {
     public partial class Form2 : GlassUIForm {
         public Form2()
         {
+
             // set up > Form style
             this.BackColor = GlassUIColors.Dark;
             this.FormOpacity = 220;
@@ -26,12 +27,13 @@ namespace Blueprint {
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            var products = Schema.Table("Products").All();
+            //var products = Schema.Table("Products").All();
+            var products = Schema.Table("Products").Select("*").Where("price", ">", 400).Get();
             while (products.Read())
             {
                 ProductCard c = new ProductCard();
-                c.ProductNameText = Convert.ToString(products["product_name"]);
-                c.Price = "₽ " + Convert.ToString(products["price"]);
+                c.ProductNameText = str(products["product_name"]);
+                c.Price = "₽ " + str(products["price"]);
                 FlowContainer.Controls.Add(c);
             }
         }
