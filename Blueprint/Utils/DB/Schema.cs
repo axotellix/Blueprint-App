@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Blueprint.Utils.DB {
     
-    // 
+    //: entry point to main class (_Schema)
     public static class Schema {
 
         //@ set > active table
@@ -17,8 +17,14 @@ namespace Blueprint.Utils.DB {
             return new _Schema(t);
         }
 
+        //@ set > SQL() method adapter (to use in entry point)
+        public static _Schema SQL( String q )
+        {
+            return new _Schema("").SQL(q);
+        }
     }
 
+    //: main class
     public class _Schema {
 
         // [ PRESETS ]
@@ -27,6 +33,7 @@ namespace Blueprint.Utils.DB {
         private String table;                               // keep > DB table
         private String filter = "";                         // keep > WHERE clause
         private List<String> fields = new List<String>();   // keep > selected fields
+        private List<SqlParameter> parameters = new List<SqlParameter>();   // keep > SQL query params
 
         public _Schema(String t)
         {
@@ -53,6 +60,100 @@ namespace Blueprint.Utils.DB {
 
 
         // [ METHODS ]
+        //@ write > direct SQL query
+        public _Schema SQL( String q )
+        {
+            // clear > params
+            parameters.Clear();
+
+            // write > new SQL query
+            query = q;
+
+            // return > static instance (for methods chaining)
+            return this;
+        }
+
+        //@ bind > SQL query params
+        public _Schema Params(String key, object value)
+        {
+            // process > NULL values
+            object val = value ?? DBNull.Value;
+
+            // store > params in params list
+            parameters.Add(new SqlParameter(key, val));
+
+            // return > static instance (for methods chaining)
+            return this;
+        }
+         // overload > Params (bind multiple params by dictionary)
+        public _Schema Params(Dictionary<string, object> paramsList)
+        {
+            foreach (var item in paramsList)
+            {
+                // reuse > single param binding method
+                this.Params(item.Key, item.Value);
+            }
+            return this;
+        }
+
+        //@ run > direct SQL query
+        public T Run<T>()
+        {
+            // open > connection to DB
+            this.OpenConn();
+
+            // run > SQL query
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                // build-in > params to SQL query
+                if (parameters.Count > 0) {
+                    cmd.Parameters.AddRange(parameters.ToArray());
+                }
+
+                //: SELECT queries
+                if (typeof(T) == typeof(SqlDataReader)) {
+
+                    return (T)(object)cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                }
+                 //: INSERT / UPDATE / DELETE queries
+                else if (typeof(T) == typeof(int)) {
+
+                    int result = cmd.ExecuteNonQuery();
+                    this.CloseConn();
+                    return (T)(object)result;
+
+                }
+                 // SCALAR query (SELECT COUNT, SELECT Column, etc.)
+                else {
+
+                    object result = cmd.ExecuteScalar();
+                    this.CloseConn();
+
+                    if (result == null || result == DBNull.Value)
+                        return default(T);
+
+                    return (T)Convert.ChangeType(result, typeof(T));
+
+                }
+            }
+        }
+        //@ get > records (by Run command)
+        public SqlDataReader Records()
+        {
+            return this.Run<SqlDataReader>();
+        }
+        //@ get > number of records affected (by Run command)
+        public int Number()
+        {
+            return this.Run<int>();
+        }
+        //@ get > nothing (by Run command) 
+        public void Done()
+        {
+            this.Run<int>();
+        }
+
         //@ get > all records
         public SqlDataReader All()
         {

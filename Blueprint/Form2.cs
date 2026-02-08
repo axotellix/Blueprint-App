@@ -27,10 +27,16 @@ namespace Blueprint {
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            Schema.Table("Products").Where("product_name", "=", "upd product").Delete();
+            //Schema.Table("Products").Where("product_name", "=", "upd product").Delete();
 
-            //var products = Schema.Table("Products").All();
-            var products = Schema.Table("Products").Select("*").Where("price", ">", 400).Get();
+            var products = Schema.SQL("Select * FROM Products " +
+                                        " WHERE price > @price_min AND price < @price_max")
+                            .Params(new Dictionary<string, object>{
+                                { "@price_min", 100 },
+                                { "@price_max", 10000 },
+                            })
+                            .Records();
+            //var products = Schema.Table("Products").Select("*").Where("price", ">", 400).Get();
             while (products.Read())
             {
                 ProductCard c = new ProductCard();
