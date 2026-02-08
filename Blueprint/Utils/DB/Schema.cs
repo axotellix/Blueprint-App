@@ -115,7 +115,7 @@ namespace Blueprint.Utils.DB {
             }
         }
 
-        //@add > new record
+        //@ add > new record
         public int Add(Dictionary<string, object> data)
         {
             // open > connection to DB
@@ -151,6 +151,68 @@ namespace Blueprint.Utils.DB {
                 this.CloseConn();
 
                 // return > number of rows added
+                return result; 
+            }
+        }
+
+        //@ update > record (by dictionary)
+        public int Set(Dictionary<string, object> data)
+        {
+            // open > connection to DB
+            this.OpenConn();
+
+            // set > edit pairs wildcards string
+            String editPairs = "";
+            int i = 0;
+            foreach (var key in data.Keys)
+            {
+                editPairs += $"{key} = @val{i}";
+                i++;
+            }
+
+            // build > SQL query template
+            query = $"UPDATE {table} SET {editPairs} {filter}";
+
+            // build & run > SQL query
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                // fill > SQL query template
+                int j = 0;
+                foreach (var col in data) {
+                    // process > NULL values (set NULL explicitly if empty)
+                    object val = col.Value ?? DBNull.Value;
+
+                    // fill > wildcards (SET)
+                    cmd.Parameters.AddWithValue($"@val{j}", val);
+                    j++;
+                }
+
+                // run > query
+                int result = cmd.ExecuteNonQuery();
+                this.CloseConn();
+
+                // return > number of rows updated
+                return result; 
+            }
+        }
+
+        //@ update > record (by string params)
+        public int Set( params string[] edit )
+        {
+            // open > connection to DB
+            this.OpenConn();
+
+            // build > SQL query
+            query = $"UPDATE {table} SET {String.Join(", ", edit)} {filter}";
+
+            // build & run > SQL query
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                // run > query
+                int result = cmd.ExecuteNonQuery();
+                this.CloseConn();
+
+                // return > number of rows updated
                 return result; 
             }
         }

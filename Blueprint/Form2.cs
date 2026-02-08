@@ -27,12 +27,10 @@ namespace Blueprint {
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            var newProduct = new Dictionary<string, object>
-            {
-                { "product_name", "new product" },
-                { "price", 1000 },
-            };
-            Schema.Table("Products").Add(newProduct);
+            Schema.Table("Products").Where("product_name", "=", "new product").Set(
+                    "product_name = 'upd product'",    
+                    "price = 1100"    
+                );
 
             //var products = Schema.Table("Products").All();
             var products = Schema.Table("Products").Select("*").Where("price", ">", 400).Get();
