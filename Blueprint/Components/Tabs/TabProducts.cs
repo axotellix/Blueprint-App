@@ -50,6 +50,7 @@ namespace Blueprint.Components.Tabs {
                 ProductCard c = new ProductCard();
                 c.ProductNameText = str(product["product_name"]);
                 c.Price = "₽ " + str(product["price"]);
+                c.Image = path( str(product["img_path"]) );
                 FlowContainer.Controls.Add(c);
             }
 

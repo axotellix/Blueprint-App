@@ -79,13 +79,7 @@ namespace Blueprint.Components.Forms {
                     CopyFileToResources(selectedFile);
 
                     // set > file preview image
-                    string projectRoot = Directory.GetParent(System.Windows.Forms.Application.StartupPath)
-                                    .Parent  // Debug
-                                    .Parent  // bin
-                                    .Parent  // ProjectName
-                                    .FullName;
-                    string resourcesPath = Path.Combine(projectRoot, FilePath);
-                    FilePreview.Image = System.Drawing.Image.FromFile(resourcesPath);
+                    FilePreview.Image = System.Drawing.Image.FromFile(path(FilePath));
                 }
             }
         }

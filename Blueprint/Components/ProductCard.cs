@@ -26,6 +26,13 @@ namespace Blueprint.Components {
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public String Image {
+            set {
+                ProductPicture.Image = System.Drawing.Image.FromFile(value);
+            }
+        }
+
         public ProductCard()
         {
             InitializeComponent();
