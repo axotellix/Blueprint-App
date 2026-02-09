@@ -199,7 +199,7 @@ namespace Blueprint.Utils.DB {
 
             // wrap > string in quotation marks
             if (value is string) {
-                value = $"'{value}'";
+                value = $"N'{value}'";
             }
 
             // add > filter to SQL query
