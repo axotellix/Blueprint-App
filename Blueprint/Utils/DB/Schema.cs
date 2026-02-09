@@ -153,9 +153,14 @@ namespace Blueprint.Utils.DB {
         {
             this.Run<int>();
         }
+        //@ get > single record (scalar)
+        public object Value()
+        {
+            return this.Run<object>();
+        }
 
         //@ get > all records
-        public SqlDataReader All()
+        public IEnumerable<SqlDataReader> All()
         {
             // open > connection to DB
             this.OpenConn();
@@ -166,8 +171,14 @@ namespace Blueprint.Utils.DB {
             // run > SQL query
             using (SqlCommand cmd = new SqlCommand(query, conn))
             {
-                // return > result
-                return cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                //: now automatically closes Reader & Connection after all records returned
+                using (SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection))
+                {
+                    while(reader.Read())
+                    {
+                        yield return reader;
+                    }
+                }
             }
 
         }
@@ -197,7 +208,7 @@ namespace Blueprint.Utils.DB {
         }
 
         //@ run > select command
-        public SqlDataReader Get()
+        public IEnumerable<SqlDataReader> Get()
         {
             // open > connection to DB
             this.OpenConn();
@@ -211,8 +222,14 @@ namespace Blueprint.Utils.DB {
             // run > SQL query
             using (SqlCommand cmd = new SqlCommand(query, conn))
             {
-                // return > result
-                return cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                //: now automatically closes Reader & Connection after all records returned
+                using (SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection))
+                {
+                    while (reader.Read())
+                    {
+                        yield return reader;
+                    }
+                }
             }
         }
 

@@ -1,21 +1,18 @@
 ﻿using AcrylicUI.Controls;
 using Blueprint.Utils.UI;
+using Blueprint.Utils.DB;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using System.Configuration;
-using System.Data.SqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Blueprint.Components.Tabs {
     public partial class TabProducts : UserControl {
 
         private int top;
-        private SqlConnection conn = null;
 
         [ToolboxItem(false)]
         public TabProducts()
@@ -27,17 +24,8 @@ namespace Blueprint.Components.Tabs {
         {
             int totalCount = 0;
 
-            conn = new SqlConnection(ConfigurationManager.ConnectionStrings["BlueprintDB"].ConnectionString);
-            conn.Open();
+            totalCount = (int)Schema.SQL("SELECT dbo.fn_GetTotalProductsCount()").Value();
 
-            string query = "SELECT dbo.fn_GetTotalProductsCount()";
-
-            using (SqlCommand cmd = new SqlCommand(query, conn))
-            {
-                totalCount = Convert.ToInt32(cmd.ExecuteScalar());
-            }
-
-            conn.Close();
             return totalCount;
         }
 
@@ -50,44 +38,21 @@ namespace Blueprint.Components.Tabs {
 
             Lable_ProductsAmount.Text = "Всего: " + Convert.ToString(getProductsAmount()) + " шт.";
 
-            //[DB] get > product cards
-
+            // clear > product cards container
             FlowContainer.Controls.Clear();
 
-            conn = new SqlConnection(ConfigurationManager.ConnectionStrings["BlueprintDB"].ConnectionString);
-            conn.Open();
+            // get > product cards  
+            var products = Schema.Table("Products").All();
 
-            SqlDataReader reader;
-            try
+            // print > all products (as cards)
+            foreach(var product in products)
             {
-                SqlCommand cmd = new SqlCommand(@"
-                                        SELECT product_id, product_name, price, img_path 
-                                        FROM Products", conn);
-                reader = cmd.ExecuteReader();
-
-                //: while have rows 
-                while (reader.Read())
-                {
-                    ProductCard c = new ProductCard();
-                    c.ProductNameText = Convert.ToString(reader["product_name"]);
-                    c.Price = "₽ " + Convert.ToString(reader["price"]);
-                    FlowContainer.Controls.Add(c);
-                }
-
-                if (reader != null && !reader.IsClosed) reader.Close();
-            }
-            catch (Exception ex)
-            {
-                //...
-            }
-            finally
-            {
-                //: need to close reader mannually
-                //if (reader != null && !reader.IsClosed) reader.Close();
-                conn.Close();
+                ProductCard c = new ProductCard();
+                c.ProductNameText = str(product["product_name"]);
+                c.Price = "₽ " + str(product["price"]);
+                FlowContainer.Controls.Add(c);
             }
 
-            //[/DB] get > product cards
         }
 
         private void acrylicScrollBar1_ValueChanged(object sender, AcrylicUI.Controls.ScrollValueEventArgs e)

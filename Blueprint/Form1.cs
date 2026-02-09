@@ -4,19 +4,12 @@
 using Blueprint.Components;
 using Blueprint.Components.Tabs;
 using Blueprint.Utils.UI;
-using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
 
 
 /* ---- [ MAIN ] ---- */
 namespace Blueprint
 {
     public partial class Form1 : GlassUIForm {
-
-        //[DB] --------------
-        private SqlConnection sqlConnection;
-
 
         public Form1()
         {
@@ -66,18 +59,6 @@ namespace Blueprint
         private void Form1_Load(object sender, EventArgs e)
         {
             SwitchTab(sender, 1);
-
-            //[DB] create > connection
-            sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["BlueprintDB"].ConnectionString);
-
-            //[DB] open > connection
-            sqlConnection.Open();
-
-            //[DB] check > if connection open
-            if (sqlConnection.State == ConnectionState.Open)
-            {
-                //MessageBox.Show("Open!");
-            }
         }
 
         private void button1_Click(object sender, EventArgs e)
