@@ -11,6 +11,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 namespace Blueprint.Components {
     public partial class Input : UserControl {
 
+        // create > Event Dispatcher
+        public event EventHandler TextChanged;
+
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string TextValue
         {
@@ -58,6 +61,7 @@ namespace Blueprint.Components {
         private void InputTextbox_TextChanged(object sender, EventArgs e)
         {
             TextValue = InputTextbox.Text;
+            TextChanged?.Invoke(this, e);
         }
     }
 }

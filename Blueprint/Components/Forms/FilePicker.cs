@@ -74,6 +74,13 @@ namespace Blueprint.Components.Forms {
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
+                    // remove > last uploaded image
+                    if (file_path != "") {
+                        FilePreview.Image.Dispose();
+                        FilePreview.Image = null;
+                        File.Delete(path(file_path));
+                    }
+
                     // copy > selected file to Server
                     string selectedFile = openFileDialog.FileName;
                     CopyFileToResources(selectedFile);
@@ -118,7 +125,6 @@ namespace Blueprint.Components.Forms {
 
                 // Если нужен абсолютный путь:
                 // FilePath = destinationPath;
-                MessageBox.Show(FilePath);
 
                 // set > file preview image
                 setFilePreview(projectRoot + FilePath);

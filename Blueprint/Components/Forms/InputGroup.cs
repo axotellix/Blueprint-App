@@ -69,9 +69,19 @@ namespace Blueprint.Components.Forms {
             }
         }
 
+        //@ get > input text
+        public String Val() => InputTextbox.TextValue;
+
         public InputGroup()
         {
             InitializeComponent();
+
+            // register > Event (TextChanged)
+            InputTextbox.TextChanged += HandleTextChanged;
+        }
+
+        private void HandleTextChanged(object sender, EventArgs e) {
+            this.ErrMsgText = "";
         }
 
         private void InputGroup_Load(object sender, EventArgs e)

@@ -26,12 +26,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TabCreateProduct));
             Label_Username = new Label();
-            inputGroup1 = new Blueprint.Components.Forms.InputGroup();
-            inputGroup2 = new Blueprint.Components.Forms.InputGroup();
-            button1 = new Button();
-            filePicker1 = new Blueprint.Components.Forms.FilePicker();
+            input_ProductName = new Blueprint.Components.Forms.InputGroup();
+            input_ProductPrice = new Blueprint.Components.Forms.InputGroup();
+            btn_Create = new Button();
+            input_ProductImage = new Blueprint.Components.Forms.FilePicker();
             InputLabel = new Label();
+            ErrMsg_ImgPicker = new Label();
+            ErrImg_ImgPicker = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)ErrImg_ImgPicker).BeginInit();
             SuspendLayout();
             // 
             // Label_Username
@@ -45,50 +49,52 @@
             Label_Username.TabIndex = 7;
             Label_Username.Text = "Создание товара";
             // 
-            // inputGroup1
+            // input_ProductName
             // 
-            inputGroup1.BackColor = Color.Transparent;
-            inputGroup1.ErrMsgText = null;
-            inputGroup1.LabelText = "название товара";
-            inputGroup1.Location = new Point(18, 113);
-            inputGroup1.Name = "inputGroup1";
-            inputGroup1.Padding = new Padding(10);
-            inputGroup1.Placeholder = "введите название товара";
-            inputGroup1.Size = new Size(557, 148);
-            inputGroup1.TabIndex = 8;
+            input_ProductName.BackColor = Color.Transparent;
+            input_ProductName.ErrMsgText = null;
+            input_ProductName.LabelText = "название товара";
+            input_ProductName.Location = new Point(18, 113);
+            input_ProductName.Name = "input_ProductName";
+            input_ProductName.Padding = new Padding(10);
+            input_ProductName.Placeholder = "введите название товара";
+            input_ProductName.Size = new Size(557, 148);
+            input_ProductName.TabIndex = 8;
             // 
-            // inputGroup2
+            // input_ProductPrice
             // 
-            inputGroup2.BackColor = Color.Transparent;
-            inputGroup2.ErrMsgText = null;
-            inputGroup2.LabelText = "цена товара";
-            inputGroup2.Location = new Point(18, 238);
-            inputGroup2.Name = "inputGroup2";
-            inputGroup2.Padding = new Padding(10);
-            inputGroup2.Placeholder = "введите цену товара";
-            inputGroup2.Size = new Size(557, 148);
-            inputGroup2.TabIndex = 9;
+            input_ProductPrice.BackColor = Color.Transparent;
+            input_ProductPrice.ErrMsgText = null;
+            input_ProductPrice.LabelText = "цена товара";
+            input_ProductPrice.Location = new Point(18, 238);
+            input_ProductPrice.Name = "input_ProductPrice";
+            input_ProductPrice.Padding = new Padding(10);
+            input_ProductPrice.Placeholder = "введите цену товара";
+            input_ProductPrice.Size = new Size(557, 148);
+            input_ProductPrice.TabIndex = 9;
             // 
-            // button1
+            // btn_Create
             // 
-            button1.BackColor = Color.FromArgb(38, 41, 43);
-            button1.ButtonSize = new Size(170, 42);
-            button1.ForeColor = Color.FromArgb(224, 233, 241);
-            button1.Location = new Point(33, 405);
-            button1.Name = "button1";
-            button1.Padding = new Padding(10);
-            button1.Size = new Size(170, 42);
-            button1.Style = Button.Styles.Light;
-            button1.TabIndex = 10;
-            button1.TextContent = "создать";
+            btn_Create.BackColor = Color.FromArgb(38, 41, 43);
+            btn_Create.ButtonSize = new Size(170, 42);
+            btn_Create.ForeColor = Color.FromArgb(224, 233, 241);
+            btn_Create.Location = new Point(33, 405);
+            btn_Create.Name = "btn_Create";
+            btn_Create.Padding = new Padding(10);
+            btn_Create.Size = new Size(170, 42);
+            btn_Create.Style = Button.Styles.Light;
+            btn_Create.TabIndex = 10;
+            btn_Create.TextContent = "создать";
+            btn_Create.Click += btn_Create_Click;
             // 
-            // filePicker1
+            // input_ProductImage
             // 
-            filePicker1.BackColor = Color.FromArgb(19, 20, 21);
-            filePicker1.Location = new Point(631, 127);
-            filePicker1.Name = "filePicker1";
-            filePicker1.Size = new Size(373, 216);
-            filePicker1.TabIndex = 11;
+            input_ProductImage.BackColor = Color.FromArgb(19, 20, 21);
+            input_ProductImage.Location = new Point(631, 127);
+            input_ProductImage.Name = "input_ProductImage";
+            input_ProductImage.Size = new Size(373, 216);
+            input_ProductImage.TabIndex = 11;
+            input_ProductImage.Click += input_ProductImage_Click;
             // 
             // InputLabel
             // 
@@ -102,20 +108,47 @@
             InputLabel.TabIndex = 12;
             InputLabel.Text = "фото товара";
             // 
+            // ErrMsg_ImgPicker
+            // 
+            ErrMsg_ImgPicker.AutoSize = true;
+            ErrMsg_ImgPicker.BackColor = Color.Transparent;
+            ErrMsg_ImgPicker.Font = new Font("NT Somic", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            ErrMsg_ImgPicker.ForeColor = Color.Salmon;
+            ErrMsg_ImgPicker.Location = new Point(681, 354);
+            ErrMsg_ImgPicker.Name = "ErrMsg_ImgPicker";
+            ErrMsg_ImgPicker.Size = new Size(51, 15);
+            ErrMsg_ImgPicker.TabIndex = 14;
+            ErrMsg_ImgPicker.Text = "label2";
+            ErrMsg_ImgPicker.Visible = false;
+            // 
+            // ErrImg_ImgPicker
+            // 
+            ErrImg_ImgPicker.Image = (Image)resources.GetObject("ErrImg_ImgPicker.Image");
+            ErrImg_ImgPicker.Location = new Point(659, 350);
+            ErrImg_ImgPicker.Name = "ErrImg_ImgPicker";
+            ErrImg_ImgPicker.Size = new Size(16, 21);
+            ErrImg_ImgPicker.SizeMode = PictureBoxSizeMode.Zoom;
+            ErrImg_ImgPicker.TabIndex = 13;
+            ErrImg_ImgPicker.TabStop = false;
+            ErrImg_ImgPicker.Visible = false;
+            // 
             // TabCreateProduct
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Transparent;
+            Controls.Add(ErrMsg_ImgPicker);
+            Controls.Add(ErrImg_ImgPicker);
             Controls.Add(InputLabel);
-            Controls.Add(filePicker1);
-            Controls.Add(button1);
-            Controls.Add(inputGroup2);
-            Controls.Add(inputGroup1);
+            Controls.Add(input_ProductImage);
+            Controls.Add(btn_Create);
+            Controls.Add(input_ProductPrice);
+            Controls.Add(input_ProductName);
             Controls.Add(Label_Username);
             Name = "TabCreateProduct";
             Padding = new Padding(20);
             Size = new Size(1250, 829);
+            ((System.ComponentModel.ISupportInitialize)ErrImg_ImgPicker).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -123,10 +156,12 @@
         #endregion
 
         private Label Label_Username;
-        private Forms.InputGroup inputGroup1;
-        private Forms.InputGroup inputGroup2;
-        private Button button1;
-        private Forms.FilePicker filePicker1;
+        private Forms.InputGroup input_ProductName;
+        private Forms.InputGroup input_ProductPrice;
+        private Forms.FilePicker input_ProductImage;
         private Label InputLabel;
+        public Button btn_Create;
+        private Label ErrMsg_ImgPicker;
+        private PictureBox ErrImg_ImgPicker;
     }
 }
